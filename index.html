@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no,minimal-ui">
+    <meta name="format-detection" content="telephone=no">
+    <link rel="stylesheet" href="css/reset.css">
+    <style>
+        html {
+            width: 100%;
+            height: 100%;
+            overflow-x: hidden;
+        }
+
+        body {
+            text-align: left;
+            width: 100%;
+            overflow: hidden;
+            background: #e9dfc7;
+        }
+
+        .m-read-content {
+            font-size: 14px;
+            color: #555;
+            line-height: 31px;
+            padding: 15px;
+        }
+
+        .m-read-content h4 {
+            font-size: 20px;
+            color: #736357;
+            border-bottom: solid 1px #736357;
+            letter-spacing: 2px;
+            margin: 0 0 1em 0;
+        }
+
+        .m-read-content p {
+            text-indent: 2em;
+            margin: 0.5em 0;
+            letter-spacing: 0px;
+            line-height: 24px;
+        }
+
+        .m-button-bar {
+            width: 70%;
+            max-width: 800px;
+            padding: 5px;
+            margin: 10px auto;
+        }
+
+        .u-tab {
+            height: 34px;
+            margin: 10px auto;
+            line-height: 34px;
+            border-radius: 8px;
+            border: 1px solid #858382;
+            font-size: 12px;
+            background: #000;
+            opacity: 0.9;
+        }
+
+        .u-tab li {
+            display: inline-block;
+            width: 49%;
+            border-right: 1px solid #858382;
+            text-align: center;
+            color: #fff;
+        }
+
+        .u-tab li:last-child {
+            border-right: none;
+        }
+    </style>
+    <title>MicroReader</title>
+</head>
+<body>
+<div id="root" class="container">
+    <div id="chapter_title"></div>
+    <div id="chapter_container" class="m-read-content">
+        <h4>星座技能</h4>
+        <p>
+            越靠近星盘的，需要点数越少的，完整星座奖励亲和点就越高。
+            离得越远的，需要点数越多的，完整星座奖励亲和点就越少。
+            两片不同色区域通常有一个桥接星座，完整星座奖励不同色亲和点的。
+            带有技能的星座，完整奖励会比相对需要同样点数的完整星座少1个完整亲和点奖励。
+            所有过度星座尽量优先给需要点数少的，且不带有技能的，这样会奖励更多的亲和点。
+            当要选择两色星座区域，通常桥接星座点出来过度是非常划算的。
+        </p>
+        <p>
+            对新人帮助很大啊，马上加精了，希望LZ能更加完善他~~~~期待！！！！！
+        </p>
+        <p>
+            战争使者 防御型星座 虽说是防御型 但是这个星座是给穿刺反伤流派量身打造的 防御性的人物属性强化其实不(50护甲+6%护甲) 当然 其他反伤流派也可以考虑点出战争使者 作为反伤流的中星座 3紫7蓝的亲和度需求
+            6点数消耗
+            得到的是2红3蓝的亲和度加成 重点是有2红的亲和度加成 这让某些BD可以不用点星盘也可以点出红色亲和度需求的星座了. 反伤流推荐点出,其他流派强烈不建议点出
+        </p>
+        <p>
+            海怪 进攻型星座 海怪一个纯粹到不能再纯粹的进攻型星座 现在版本下 拿任何双手(TWO-HANDED)的武器 角色都可以被此星座强化 并且强化数值很大 伤害类型是 全伤害 也就是任意双手武器BD都可以点它
+            只要我见过的双手武器BD 没有不点海怪的 超值星座 强烈推荐点出
+            另外5绿5蓝的需求也很平滑,更是提供2红3蓝的亲和度加成
+        </p>
+        <p>
+            女狂战 进攻型星座 女狂战士 星座对于大多数BD并不友好,以至于只有一种BD----流血BD 并且是双持的流血BD才会使用它 因为它需求武器是斧 而流血斧子 又仅仅只有伯尔维治屠宰斧 这一把紫色斧 所以
+            除了我刚才提到的BD 其他BD都不推荐点出
+        </p>
+        <p>
+            拜斯迈的枷锁 进攻型星座(其实是宠物型) 改版之前是个纯宠物加成的星座 星座技能召唤的狗狗只能说勉强,不过冷却时间较长(不知道满级之后会不会缩短) 虽然星座技能不咋的,但是其他星的宠物加成效果棒棒滴 所以
+            只推荐宠物流BD点出
+        </p>
+        <p>
+            温迪戈 进攻型星座 此星座拥有大量的活力/活力衰减伤害加成 星座技能温迪戈的标记更是0CD技能 造成大量活力伤害的同时 将造成伤害的40%作为生命值转移给你 此星座针对性非常强 活力萨以及活力巫刃会喜笑颜开
+            但是其他BD强烈不建议点出
+        </p>
+        <p>
+            狼神莫格卓根 综合型星座(其实是宠物型)
+            狼头星座 作为宠物流的唯一大星座 是一些宠物流玩家必选的星座 但是在下并不推荐所有的宠物流BD都点狼头.因为它给人物加成的属性居然是流血............我想宠物流BD的玩家整个人都不好了.
+            宠物流派顾名思义要靠宠物去打 玩家角色其实就是个甩BUFF/DEBUFF的路人甲 但是角色一旦死亡也就结束了.所以 需要补足大量的抗性-----站得住的DPS(伤害输出者)才叫DPS嘛~ 所以 在装备不行的情况下
+            与其一味追求大狼头 不如去其他防御型星座找生存.
+            星座技能 不得不说 大狼头的星座技能给宠物们的加成还是非常棒的
+            总结:狼神星座 推荐装备合格的宠物流BD点出,另外流血流BD也可以点出
+        </p>
+        <p>
+            憎恶 进攻型星座
+            唯一一个双星座技能的星座 巨量的毒/酸/混乱伤害加成 唯一美中不足的是OA加成略低.
+            星座技能一 腐化爆发 是最强星座技能 没有之一 效果是半径10秒 360度无死角的毒爆 所有范围内单位都会被染上巨量的毒素DOT,另外腐化爆发时还会造成范围内所有非精英单位1.8秒不可抵抗(除了极少数怪物)的混乱.
+            星座技能二 恐怖之力 是一个击杀触发类星座技能 需要使用绑定的技能杀死怪物才能触发 满级后持续时间与冷却时间差不多,造成大量的物理伤害转换成混乱伤害 20%生命加成 以及巨量的基础混乱伤害.
+            总结:星座技能一是毒系BD必点的星座技能 星座技能二是混乱类型近战BD推荐点出的技能
+        </p>
+    </div>
+    <div class="m-button-bar">
+        <ul class="u-tab">
+            <li id="prev_button">上一章</li>
+            <li id="next_button">下一章</li>
+        </ul>
+    </div>
+</div>
+<script src="lib/zepto.min.js"></script>
+<script>
+    window.jQuery = $;
+</script>
+<script src="js/jquery.base64.js"></script>
+<script src="js/jquery.jsonp.js"></script>
+<script>
+
+</script>
+</body>
+</html>
