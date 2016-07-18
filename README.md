@@ -14,3 +14,17 @@
 
 ### css3 的 子元素选择器
 在`index.html`中为了让ul的第二个子元素不出现右边框使用了子选择器`li:nth-child(2)`,值得注意的是css中的子元素序号是从1开始的,同时,这段也可以写成`li:last-child` 以匹配最后一个子元素.
+
+## 日记2 15/7
+### 顶部/底部 固定菜单栏
+1.  将菜单栏的最外层的`position` 设为fixed 即相对于浏览器窗口不变,并设置高度
+2.  将其中的元素,如返回按钮与标题的 `position`设为`absolute` 并根据设计图调整其相对夫元素的位置
+
+### ase64
+1.  Base64格式
+  `data:[][;charset=][;base64]`
+2.  Base64 在CSS中的使用
+  `.demoImg{ background-image: url("data:image/jpg;base64,/9j/4QMZRXhpZgAASUkqAAgAAAAL...."); }`
+3.  Base64 在HTML中的使用
+  `<img width="40" height="30" src="data:image/jpg;base64,/9j/4QMZRXhpZgAASUkqAAgAAAAL...." />`
+4.  png图片转化为base64 可以使用[在线网站](http://tool.css-js.com/base64.html)
