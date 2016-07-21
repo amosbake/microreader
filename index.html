@@ -99,7 +99,7 @@
 
         .nav-bottom {
             position: fixed;
-            height: 70px;
+            height: 50px;
             padding-top: 10px;
             padding-bottom: 10px;
             width: 100%;
@@ -148,6 +148,63 @@
         .theme-icon-night {
             background-image: url("data:image/png;base64,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");
             background-size: contain;
+        }
+        .nav-pannel-bg{
+            position: fixed;
+            bottom: 70px;
+            height: 135px;
+            width: 100%;
+            background: #000;
+            opacity: 0.9;
+            z-index: 10000;
+        }
+        .nav-pannel{
+            position: fixed;
+            bottom: 70px;
+            height: 135px;
+            width: 100%;
+            background: none;
+            color: #fff;
+            z-index: 10001;
+        }
+        .child-mod{
+            padding: 5px 10px;
+            margin: 15px;
+        }
+        .child-mod span {
+            display: inline-block;
+            padding-right: 20px;
+            padding-left: 20px;
+        }
+        .child-mod button:nth-child(2){
+            margin-right: 10px;
+        }
+        .font-size-button {
+            background: none;
+            border: 1px #8c8c8c solid;
+            color: #fff;
+            border-radius: 16px;
+            padding: 5px 40px;
+        }
+        .bk-container{
+            position: relative;
+            width: 30px;
+            height: 30px;
+            margin-right: 5px;
+            border-radius: 15px;
+            background: #fff;
+            display: inline-block;
+            vertical-align: -14px;
+        }
+        .bk-container-current {
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            width: 32px;
+            height: 32px;
+            border-radius: 16px;
+            border: 1px #ff7800 solid;
+            display: inline-block;
         }
     </style>
     <title>MicroReader</title>
@@ -236,6 +293,22 @@
             </div>
         </div>
     </div>
+    <div class="nav-pannel-bg"></div>
+    <div class="nav-pannel" id="font-container">
+        <div class="child-mod">
+            <span>字号</span>
+            <button id="large-font" class="font-size-button">大</button>
+            <button id="small-font" class="font-size-button">小</button>
+        </div>
+        <div class="child-mod">
+            <span>背景</span>
+            <div class="bk-container">
+                <div class="bk-container-current"></div>
+            </div>
+            <div class="bk-container">
+            </div>
+        </div>
+    </div>
 </div>
 <script src="lib/zepto.min.js"></script>
 <script>
@@ -244,7 +317,38 @@
 <script src="js/jquery.base64.js"></script>
 <script src="js/jquery.jsonp.js"></script>
 <script>
+    (function(){
+        var Util = (function(){
+            var prefix = 'html5_reader_'
+            var StorageGetter = function(key){
+                return localStorage.getItem(prefix+key);
+            }
+            var StorageSetter = function(key,val){
+                return localStorage.setItem(prefix+key,val);
+            }
+            return {
+                StorageGetter:StorageGetter,
+                StorageSetter:StorageSetter
+            }
+        }());
+        function main(){
+            //todo 应用入口
+        }
 
+        function ReaderModel (){
+            //todo 实现阅读器相关的数据交互的方法
+        }
+
+        function ReaderBaseFrame(){
+            //todo 渲染基本的ui结构
+        }
+
+        function EventHandler(){
+            //todo 交互的事件绑定
+        }
+
+        main();
+    })();
 </script>
 </body>
 </html>
