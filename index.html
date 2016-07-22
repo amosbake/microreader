@@ -16,13 +16,12 @@
             text-align: left;
             width: 100%;
             overflow: hidden;
-            background: #e9dfc7;
         }
 
         .m-read-content {
             font-size: 14px;
-            color: #555;
             line-height: 31px;
+            color: #555;
             padding: 15px;
         }
 
@@ -196,6 +195,21 @@
             display: inline-block;
             vertical-align: -14px;
         }
+        .font-color1{
+         background: #fff;   
+        }
+        .font-color2{
+         background: rgb(230,219,194);   
+        }
+        .font-color3{
+         background: rgb(155,155,155);   
+        }
+        .font-color4{
+         background: rgb(202,237,202);   
+        }
+        .font-color5{
+         background: rgb(37,49,64);   
+        }
         .bk-container-current {
             position: absolute;
             top: -2px;
@@ -213,6 +227,10 @@
             width: 100%;
             height: 40%;
             top: 30%;
+        }
+        .current{
+                    background:url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABKElEQVQ4T6WTwU3DQBBF3yL5zFoC5wipgFABpINQAU4HdMCkAlpIKoAOcAekA3yNheS5R8Jo0Mayje1EYk727Pw/f+bvOv4ZbgxfiF9XkE9EZahukKAQPwM+DBhBHItqH8kYwRp4NFAFqyEVYwTW8TwQ2BjTkxUU4tMKxEEO3AXgMhE1Va3oVVCIzxy8AdsK3gMiS0TnRwlK8dd7+IxgGovmO/G5g6uwzN9ck+SPgp14oWI2WenCCu3fwXMAbRLR9BhB3bFnaRqU1Za2FHyJX3zDa9d3u1AHS4HWMlsEoZCuzOalssUmorcHdTVBKd7voTyDhwtRc6AVhfgtcGNJB/NL0Sx8QwC/AGnzsMnQGSOLYGmOuDD3U7djInpvuaHzUL8efY2nvPQfv3p06//HwocAAAAASUVORK5CYII=');
+                background-size: contain;
         }
     </style>
     <title>MicroReader</title>
@@ -293,7 +311,7 @@
             <div class="font-icon icon"></div>
             <div class="font-title title-text">字体</div>
         </div>
-        <div class="nav-theme feature">
+        <div class="nav-theme feature" id="night-day-switch">
             <div class="theme-night feature">
                 <div class="theme-icon-night"></div>
                 <div class="theme-title-night title-text">夜间</div>
@@ -313,10 +331,16 @@
         </div>
         <div class="child-mod">
             <span>背景</span>
-            <div class="bk-container">
+            <div class="bk-container font-color1">
                 <div class="bk-container-current"></div>
             </div>
-            <div class="bk-container">
+            <div class="bk-container font-color2">
+            </div>
+            <div class="bk-container font-color3">
+            </div>
+            <div class="bk-container font-color4">
+            </div>
+            <div class="bk-container font-color5" >
             </div>
         </div>
     </div>
@@ -344,13 +368,59 @@
         }());
         var DOM = {
             top_nav: $('#top-nav'),
-            bottom_nav: $('.js_bottom_nav')
+            bottom_nav: $('.js_bottom_nav'),
+            font_contianer:$('#font-container'),
+            font_bg:$('.nav-pannel-bg'),
+            font_selector :$('<div class="bk-container-current"></div>'),
+            bk_container:$('bk-container')
         };
         var Win = $(window);
         var Doc = $(document);
+        var RootContainer=$('#chapter_container');
+        var themeArr = [{
+            value : '#f7eee5',
+            name : '米白',
+            font : ''
+        }, {
+            value : '#e9dfc7',
+            name : '纸张',
+            font : '',
+            id : "font_normal"
+        }, {
+            value : '#a4a4a4',
+            name : '浅灰',
+            font : ''
+        }, {
+            value : '#cdefce',
+            name : '护眼',
+            font : ''
+        }, {
+            value : '#283548',
+            name : '灰蓝',
+            font : '#7685a2',
+            bottomcolor : '#fff'
+        }, {
+            value : '#0f1410',
+            name : '夜间',
+            font : '#4e534f',
+            bottomcolor : 'rgba(255,255,255,0.7)',
+            id : "font_night"
+        }];
+        var initFontSize = parseInt(Util.StorageGetter('font-size'));
+        if(!initFontSize){
+            initFontSize=14;
+        }
+
+        RootContainer.css('font-size',initFontSize);
         function main(){
             //todo 应用入口
             EventHandler();
+            var initTheme = parseInt(Util.StorageGetter('theme'));
+            if(!initTheme){
+                initTheme=0;
+            }
+            var select = '.font-color'+(initTheme+1);
+            $(select).trigger("click")
         }
 
         function ReaderModel (){
@@ -369,16 +439,98 @@
                 } else {
                     DOM.bottom_nav.hide();
                     DOM.top_nav.hide();
+                    DOM.font_contianer.hide();
+                    DOM.font_bg.hide();
+                    $('.font-icon').removeClass('current')
                 }
             });
             Win.scroll(function () {
                 if (DOM.top_nav.css('display') != 'none') {
                     DOM.bottom_nav.hide();
                     DOM.top_nav.hide();
+                    DOM.font_contianer.hide();
+                    DOM.font_bg.hide();                       
                 }
+            });
+            $('.nav-font').click(function(){
+                if (DOM.font_contianer.css('display') == 'none') {
+                    DOM.font_contianer.show();
+                    DOM.font_bg.show();
+                    $('.font-icon').addClass('current')
+                } else {
+                    DOM.font_contianer.hide();
+                    DOM.font_bg.hide();
+                    $('.font-icon').removeClass('current')
+                }              
+            });
+            $('#night-day-switch').click(function(){
+                //todo 触发背景色切换
+            });
+            $('#large-font').click(function(){
+                if(initFontSize>20){
+                    return;
+                }
+                initFontSize+=1;
+                RootContainer.css('font-size',initFontSize);
+                Util.StorageSetter('font-size',initFontSize);
+            });
+            $('#small-font').click(function(){
+                if(initFontSize<12){
+                    return;
+                }
+                initFontSize-=1;
+                RootContainer.css('font-size',initFontSize);
+                Util.StorageSetter('font-size',initFontSize);
+            });
+            $('.font-color1').click(function(){
+                $('.bk-container-current').remove();
+                $('.font-color1').append(DOM.font_selector);
+                initTheme =0;
+                var theme = themeArr[initTheme]
+                RootContainer.css('background',theme.value);
+                RootContainer.css('color',theme.font);
+                Util.StorageSetter('theme',initTheme);
+            });
+            $('.font-color2').click(function(){
+                $('.bk-container-current').remove();
+                $('.font-color2').append(DOM.font_selector);
+                initTheme =1;
+                var theme = themeArr[initTheme]
+                RootContainer.css('background',theme.value);
+                RootContainer.css('color',theme.font);
+                Util.StorageSetter('theme',initTheme);
+            });
+            $('.font-color3').click(function(){
+                $('.bk-container-current').remove();
+                $('.font-color3').append(DOM.font_selector);
+                initTheme =2;
+                var theme = themeArr[initTheme]
+                RootContainer.css('background',theme.value);
+                RootContainer.css('color',theme.font);
+                Util.StorageSetter('theme',initTheme);
+            });
+            $('.font-color4').click(function(){
+                $('.bk-container-current').remove();
+                $('.font-color4').append(DOM.font_selector);
+                initTheme =3;
+                var theme = themeArr[initTheme]
+                RootContainer.css('background',theme.value);
+                RootContainer.css('color',theme.font);
+                Util.StorageSetter('theme',initTheme);
+            });
+            $('.font-color5').click(function(){
+                $('.bk-container-current').remove();
+                $('.font-color5').append(DOM.font_selector);
+                initTheme =4;
+                var theme = themeArr[initTheme]
+                RootContainer.css('background',theme.value);
+                RootContainer.css('color',theme.font);
+                Util.StorageSetter('theme',initTheme);
             });
             //todo 交互的事件绑定
         }
+
+
 
         main();
     })();
