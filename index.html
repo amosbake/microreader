@@ -127,7 +127,7 @@
             justify-content: space-around;
             align-items: center;
         }
-        .theme-night {
+        .theme-day {
             display: none;
         }
         .list-icon {
@@ -313,7 +313,7 @@
         </div>
         <div class="nav-theme feature" id="night-day-switch">
             <div class="theme-night feature">
-                <div class="theme-icon-night"></div>
+                <div class="theme-icon-night icon"></div>
                 <div class="theme-title-night title-text">夜间</div>
             </div>
             <div class="theme-day feature">
@@ -372,11 +372,14 @@
             font_contianer:$('#font-container'),
             font_bg:$('.nav-pannel-bg'),
             font_selector :$('<div class="bk-container-current"></div>'),
-            bk_container:$('bk-container')
+            bk_container:$('.bk-container'),
+            night:$('.theme-night'),
+            day:$('.theme-day')
         };
         var Win = $(window);
         var Doc = $(document);
         var RootContainer=$('#chapter_container');
+        var themeMode=0; //0: day 1:night
         var themeArr = [{
             value : '#f7eee5',
             name : '米白',
@@ -464,7 +467,15 @@
                 }              
             });
             $('#night-day-switch').click(function(){
-                //todo 触发背景色切换
+                if(DOM.day.css('display')=='none'){
+                    DOM.day.show();
+                    DOM.night.hide();
+                    $('.font-color1').trigger("click");
+                }else{
+                    DOM.night.show();
+                    DOM.day.hide();
+                    $('.font-color5').trigger("click");
+                }
             });
             $('#large-font').click(function(){
                 if(initFontSize>20){
